@@ -1,50 +1,158 @@
-# React + TypeScript + Vite
+# File Explorer - React + Redux + TypeScript
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A fully functional file explorer interface built with React, Redux, TypeScript, and Styled Components. This project demonstrates how to create a dynamic and interactive file explorer with features like folder creation, deletion, renaming, duplication, and nesting.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Features
 
-## Expanding the ESLint configuration
+1. **Folder Management**:
+   - Create new folders with a right-click context menu.
+   - Delete existing folders.
+   - Rename folders by double-clicking on them.
+   - Duplicate folders with a single click.
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+2. **Drag-and-Drop**:
+   - Drag folders to reposition them on the canvas.
+   - Drag folders into other folders to nest them.
 
-- Configure the top-level `parserOptions` property like this:
+3. **Nested Folders**:
+   - Move folders inside other folders.
+   - Explore nested folders by toggling their visibility.
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+4. **Context Menu**:
+   - Right-click anywhere on the canvas to open a context menu with options to create or delete folders.
+
+5. **Type Safety**:
+   - Built with TypeScript to ensure type safety and avoid the use of `any`.
+
+6. **Styling**:
+   - Uses Styled Components for clean and modular CSS.
+
+---
+
+## Technologies Used
+
+- **React**: A JavaScript library for building user interfaces.
+- **Redux**: A state management library for managing global application state.
+- **TypeScript**: A typed superset of JavaScript for better developer experience.
+- **Styled Components**: A library for styling React components with CSS-in-JS.
+
+---
+
+## Installation
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/your-username/file-explorer.git
+   cd file-explorer
+   ```
+
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+
+3. Start the development server:
+   ```bash
+   npm start
+   ```
+
+4. Open your browser and navigate to `http://localhost:3000`.
+
+---
+
+## Project Structure
+
+```
+file-explorer/
+├── src/
+│   ├── components/
+│   │   ├── Folder.tsx          # Folder component with drag-and-drop and renaming
+│   │   └── FileExplorer.tsx    # Main file explorer component
+│   ├── features/
+│   │   └── foldersSlice.ts     # Redux slice for folder state management
+│   ├── store.ts                # Redux store configuration
+│   ├── App.tsx                 # Main application component
+│   └── index.tsx               # Entry point for the app
+├── package.json                # Project dependencies and scripts
+└── README.md                   # Project documentation
 ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+---
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+## How It Works
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+### Redux State Management
+- The `foldersSlice.ts` file defines the Redux slice for managing folder state.
+- Actions like `addFolder`, `deleteFolder`, `renameFolder`, `duplicateFolder`, and `moveFolderIntoFolder` are used to update the state.
+
+### Folder Component
+- The `Folder.tsx` component renders a single folder and handles drag-and-drop, renaming, and duplication.
+
+### File Explorer Component
+- The `FileExplorer.tsx` component renders the canvas and handles the context menu, folder creation, and nesting logic.
+
+### Styling
+- Styled Components are used to style the canvas, folders, and context menu.
+
+---
+
+## Usage
+
+1. **Create a Folder**:
+   - Right-click anywhere on the canvas and select "New Folder" from the context menu.
+
+2. **Rename a Folder**:
+   - Double-click on a folder to enter renaming mode. Type the new name and press Enter or click outside the input.
+
+3. **Duplicate a Folder**:
+   - Click the "Duplicate" button on a folder to create a copy.
+
+4. **Delete a Folder**:
+   - Right-click on the canvas and select "Delete Folder" from the context menu.
+
+5. **Nest Folders**:
+   - Drag a folder into another folder to nest it.
+
+6. **Explore Nested Folders**:
+   - Click the "Open/Close" button on a folder to toggle its visibility.
+
+---
+
+## Future Enhancements
+
+- Add support for files (e.g., text files, images).
+- Implement a breadcrumb navigation system for nested folders.
+- Add animations for folder creation, deletion, and nesting.
+- Save and load folder structure using local storage or an API.
+
+---
+
+## Contributing
+
+Contributions are welcome! If you'd like to contribute, please follow these steps:
+
+1. Fork the repository.
+2. Create a new branch for your feature or bugfix.
+3. Commit your changes and push to your branch.
+4. Submit a pull request.
+
+---
+
+## License
+
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+
+---
+
+## Acknowledgments
+
+- [React](https://reactjs.org/) for the UI library.
+- [Redux Toolkit](https://redux-toolkit.js.org/) for state management.
+- [TypeScript](https://www.typescriptlang.org/) for type safety.
+- [Styled Components](https://styled-components.com/) for styling.
+
+---
+
+Enjoy exploring the file explorer! 🚀
