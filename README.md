@@ -55,7 +55,7 @@ A fully functional file explorer interface built with React, Redux, TypeScript, 
 
 3. Start the development server:
    ```bash
-   npm start
+   npm run dev
    ```
 
 4. Open your browser and navigate to `http://localhost:3000`.
@@ -70,9 +70,8 @@ file-explorer/
 │   ├── components/
 │   │   ├── Folder.tsx          # Folder component with drag-and-drop and renaming
 │   │   └── FileExplorer.tsx    # Main file explorer component
-│   ├── features/
-│   │   └── foldersSlice.ts     # Redux slice for folder state management
-│   ├── store.ts                # Redux store configuration
+│   ├── redux/
+│   │   └── foldersSlice.ts, store.ts     # Redux slice for folder state management               # Redux store configuration
 │   ├── App.tsx                 # Main application component
 │   └── index.tsx               # Entry point for the app
 ├── package.json                # Project dependencies and scripts
